@@ -2,5 +2,23 @@
   "name": "starwars",
   "connector": "rest",
   "baseURL": "https://swapi.co/api/",
-  "crud": true
+  "crud": true,
+  "options": {
+    "headers": {
+      "accept": "application/json",
+      "content-type": "application/json"
+    }
+  },
+  "operations": [
+    {
+      "template": {
+        "method": "GET",
+        "url": "https://swapi.co/api/",
+        "resourceName": ""
+      },
+      "functions": {
+        "root": []
+      }
+    }
+  ]
 }

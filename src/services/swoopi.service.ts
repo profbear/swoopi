@@ -1,11 +1,15 @@
-import {getService} from '@loopback/service-proxy';
+import {getService, juggler} from '@loopback/service-proxy';
 import {inject, Provider} from '@loopback/core';
 import {StarwarsDataSource} from '../datasources';
+import {GenericService} from '@loopback/service-proxy'
 
-export interface SwoopiService {
-  // this is where you define the Node.js methods that will be
-  // mapped to the SOAP operations as stated in the datasource
-  // json file.
+
+export interface RootResource {
+  [name: string]: string;
+}
+
+export interface SwoopiService extends GenericService {
+  root(): Promise<RootResource>
 }
 
 export class SwoopiServiceProvider implements Provider<SwoopiService> {

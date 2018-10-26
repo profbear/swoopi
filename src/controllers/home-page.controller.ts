@@ -5,7 +5,7 @@ import {inject} from '@loopback/context';
 import {RestBindings, Response} from '@loopback/rest';
 
 export class HomePageController {
-  private html: string;
+  private readonly html: string;
   constructor(@inject(RestBindings.Http.RESPONSE) private response: Response) {
     this.html = fs.readFileSync(
       path.join(__dirname, '../../../public/index.html'),

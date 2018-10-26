@@ -6,8 +6,8 @@ export class StarwarsDataSource extends juggler.DataSource {
   static dataSourceName = 'starwars';
 
   constructor(
-    @inject('datasources.config.starwars', {optional: true})
-    dsConfig: object = config,
+      @inject('datasources.config.starwars', {optional: true})
+          dsConfig: object = config,
   ) {
     super(dsConfig);
   }
