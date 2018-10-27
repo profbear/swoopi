@@ -8,9 +8,8 @@ export interface RootResource {
 }
 
 export interface SwoopiService extends GenericService {
-  root(): Promise<RootResource>
-
-  schema(model: string, schema: string): Promise<RootResource>
+  root(): Promise<RootResource>;
+  schema(model: string): Promise<RootResource>;
 }
 
 export class SwoopiServiceProvider implements Provider<SwoopiService> {

@@ -13,12 +13,35 @@
     {
       "template": {
         "method": "GET",
-        "url": "https://swapi.co/api/{model}{schema}",
+        "url": "https://swapi.co/api/",
         "resourceName": ""
       },
       "functions": {
-        "root": [],
-        "schema": ["model", "schema"]
+        "root": []
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "https://swapi.co/api/{model}/schema",
+        "resourceName": ""
+      },
+      "functions": {
+        "schema": [
+          "model"
+        ]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "https://swapi.co/api/{model}",
+        "resourceName": ""
+      },
+      "functions": {
+        "model": [
+          "model"
+        ]
       }
     }
   ]

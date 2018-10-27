@@ -1,5 +1,4 @@
 import * as d from 'debug'
-import {ModelBuilder} from 'loopback-datasource-juggler'
 import {expect} from '@loopback/testlab';
 
 import {SwoopiService, SwoopiServiceProvider} from '../../src/services'
@@ -23,30 +22,23 @@ describe('starwars via swoopi', () => {
     expect(service).not.undefined()
   })
 
-  it('should generate the model schemas', async () => {
-    d.enable('test:*')
-    // log(await service.root())
-    // const root = await service.root()
-    // Object.keys(root)
-    //     .map(async m => {
-    //       log(`/* ${m} */`,
-    //           JSON.stringify(await service.schema(m,'/schema')))
-    //     })
+  it('should have a root', async () => {
+    log(await service.root())
   })
 
-  // xit('skips making tons of calls', async () => {
-  //
-  //   Object.keys(root)
-  //       .map(m => {
-  //       })
-  //
-  //       // .map(m => ModelBuilder.defaultInstance
-  //       //     .buildModelFromInstance(m, {name: 'haha'}, {}))
-  //       // .map(async (m) => {
-  //       //   dataSource.createModel(m)
-  //       //   log(await m.find()) // note works fine just has type error
-  //       // })
-  // })
+  it('should have a schema', async () => {
+    const schema = await service.schema('people')
+    expect(schema).to.have.properties(['required', 'description'])
+  })
+
+  xit('generate all model schemas from the root', async () => {
+    d.enable('test:*')
+    Object.keys(await service.root())
+        .forEach(async m =>
+            log(`/* ${m} */`,
+                JSON.stringify(await service.schema(m))
+            ))
+  })
 
   async function promisedService() {
     service = await new SwoopiServiceProvider(dataSource).value()
