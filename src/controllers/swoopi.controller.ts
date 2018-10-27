@@ -8,15 +8,15 @@ import * as d from 'debug';
 const log = d('swoopi:controller:swoopi')
 
 
-const PeopleSchema: MediaTypeObject = {
-  schema: {
-    type: 'object',
-    properties: {results: {'x-ts-type': People}},
-  }
-};
-const PersonSchema: MediaTypeObject = {
-  schema: {'x-ts-type': Person}
-}
+const one = <T>(type: T): MediaTypeObject => ({schema: {'x-ts-type': type}})
+
+const many = <T>(type: T): MediaTypeObject => ({
+  schema: {type: 'object', properties: {results: {'x-ts-type': type}}}
+})
+
+const responses = (desc: string, schema: MediaTypeObject) => ({
+  responses: {'200': {description: desc, content: {'application/json': schema}}},
+})
 
 export class SwoopiController {
   constructor(
@@ -25,14 +25,7 @@ export class SwoopiController {
   ) {
   }
 
-  @get('people', {
-    responses: {
-      '200': {
-        description: 'people',
-        content: {'application/json': PeopleSchema},
-      },
-    },
-  })
+  @get('people', responses('people', many(People)))
   async people(
       @param.query.string('search') search?: string,
       @param.query.string('page') page?: string,
@@ -40,14 +33,7 @@ export class SwoopiController {
     return await this.service.models('people', search, page)
   }
 
-  @get('people/{id}', {
-    responses: {
-      '200': {
-        description: 'person',
-        content: {'application/json': PersonSchema},
-      },
-    },
-  })
+  @get('people/{id}', responses('person', one(Person)))
   async findPerson(@param.path.string('id') id: string): Promise<Person> {
     return await this.service.model('people', id)
   }
