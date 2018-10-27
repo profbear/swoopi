@@ -1,5 +1,5 @@
 import {get} from '@loopback/openapi-v3';
-import {Peoples} from '../models'
+import {People} from '../models'
 import {inject,} from '@loopback/core';
 import {SwoopiService} from '../services'
 import {SchemaObject} from 'openapi3-ts';
@@ -10,7 +10,7 @@ const log = d('swoopi:controller:swoopi')
 const schemaWithObjectPropOfMyModel: SchemaObject = {
   type: 'object',
   properties: {
-    results: {'x-ts-type': Peoples},
+    results: {'x-ts-type': People},
   },
 };
 
@@ -21,10 +21,10 @@ export class SwoopiController {
   ) {
   }
 
-  @get('peoples', {
+  @get('people', {
     responses: {
       '200': {
-        description: 'peoples',
+        description: 'people',
         content: {'application/json': {schema: schemaWithObjectPropOfMyModel}},
       },
     },

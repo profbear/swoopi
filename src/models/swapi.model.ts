@@ -392,7 +392,7 @@ export class Film {
  * A person within the Star Wars universe
  */
 @model()
-export class People {
+export class Person {
   /**
    * The url of the species resource that this person is.
    */
@@ -461,6 +461,6 @@ export class People {
 
 
 @model()
-export class Peoples extends Paged {
-  @property({itemType: People}) results: People[];
+export class People extends Paged {
+  @property({itemType: Person}) results: Person[];
 }
