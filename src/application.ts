@@ -11,7 +11,6 @@ export class SwoopiApplication extends BootMixin(
   constructor(options: ApplicationConfig = {}) {
     super(options);
 
-    // Set up the custom sequence
     this.sequence(MySequence);
 
     this.projectRoot = __dirname;

@@ -2,7 +2,6 @@
   "name": "starwars",
   "connector": "rest",
   "baseURL": "https://swapi.co/api/",
-  "crud": true,
   "options": {
     "headers": {
       "accept": "application/json",

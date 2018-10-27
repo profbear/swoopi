@@ -22,11 +22,11 @@ describe('starwars via swoopi', () => {
     expect(service).not.undefined()
   })
 
-  it('should have a root', async () => {
+  xit('should have a root', async () => {
     log(await service.root())
   })
 
-  it('should have a schema', async () => {
+  xit('should have a schema', async () => {
     const schema = await service.schema('people')
     expect(schema).to.have.properties(['required', 'description'])
   })
