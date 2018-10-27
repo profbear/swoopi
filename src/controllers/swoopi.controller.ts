@@ -18,6 +18,20 @@ const responses = (desc: string, schema: MediaTypeObject) => ({
   responses: {'200': {description: desc, content: {'application/json': schema}}},
 })
 
+const idOf = (url: string): string => penultimate(url.split('/'))
+
+const penultimate = (a: string[]): string => a[a.length - 2]
+
+const fixPerson = (person: Person): Person => ({
+  ...person,
+  species: person.species.map(idOf),
+  vehicles: person.vehicles.map(idOf),
+  starships: person.starships.map(idOf),
+  films: person.films.map(idOf),
+  homeworld: idOf(person.homeworld),
+  url: idOf(person.url)
+})
+
 export class SwoopiController {
   constructor(
       @inject('services.SwoopiService')
@@ -30,11 +44,16 @@ export class SwoopiController {
       @param.query.string('search') search?: string,
       @param.query.string('page') page?: string,
   ): Promise<People> {
-    return await this.service.models('people', search, page)
+    let swapiPage = await this.service.models('people', search, page)
+    swapiPage = {
+      ...swapiPage,
+      results: swapiPage.results.map(fixPerson)
+    }
+    return swapiPage
   }
 
   @get('people/{id}', responses('person', one(Person)))
   async findPerson(@param.path.string('id') id: string): Promise<Person> {
-    return await this.service.model('people', id)
+    return fixPerson(await this.service.model('people', id))
   }
 }
