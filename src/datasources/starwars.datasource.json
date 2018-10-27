@@ -42,10 +42,23 @@
         }
       },
       "functions": {
-        "model": [
+        "models": [
           "model",
           "search",
           "page"
+        ]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "https://swapi.co/api/{model}/{id}/",
+        "resourceName": ""
+      },
+      "functions": {
+        "model": [
+          "model",
+          "id"
         ]
       }
     }

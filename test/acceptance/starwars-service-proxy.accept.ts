@@ -33,7 +33,7 @@ describe('starwars via swoopi', () => {
 
   xit('should allow search', async () => {
     d.enable('test:*')
-    const skywalkers = await service.model('people', "Skywalker")
+    const skywalkers = await service.models('people', "Skywalker")
     log(skywalkers) // looks just like @model People
     expect(skywalkers).to.have.properties(['required', 'description'])
   })

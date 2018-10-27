@@ -464,3 +464,8 @@ export class Person {
 export class People extends Paged {
   @property({itemType: Person}) results: Person[];
 }
+
+export type SwapiPage =
+    | People
+export type Swapi =
+    | Person

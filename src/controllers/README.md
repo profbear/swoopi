@@ -9,7 +9,7 @@ class MyModel {
 
 const schemaOfMyModel = {'x-ts-type': MyModel}
 
-class MyController {
+export class MyController {
   @get('/my-controller', {
     responses: {
       '200': {
@@ -49,7 +49,7 @@ const schemaWithObjectPropOfMyModel = {
   },
 };
 
-class SomeController {
+export class SomeController {
   @post('/my-controller')
   greetObjectProperty(
       @requestBody({
