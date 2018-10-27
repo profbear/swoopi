@@ -35,11 +35,15 @@
       "template": {
         "method": "GET",
         "url": "https://swapi.co/api/{model}",
-        "resourceName": ""
+        "resourceName": "",
+        "query": {
+          "search": "{search}"
+        }
       },
       "functions": {
         "model": [
-          "model"
+          "model",
+          "search"
         ]
       }
     }

@@ -5,7 +5,6 @@ import {get, post, requestBody} from '@loopback/openapi-v3';
 @model()
 class MyModel {
   @property() name: string;
-  @property({itemType: 'string'}) starships: string[];
 }
 
 const schemaOfMyModel = {'x-ts-type': MyModel}

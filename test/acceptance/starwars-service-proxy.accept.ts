@@ -31,6 +31,13 @@ describe('starwars via swoopi', () => {
     expect(schema).to.have.properties(['required', 'description'])
   })
 
+  xit('should allow search', async () => {
+    d.enable('test:*')
+    const skywalkers = await service.model('people', "Skywalker")
+    log(skywalkers) // looks just like @model People
+    expect(skywalkers).to.have.properties(['required', 'description'])
+  })
+
   xit('generate all model schemas from the root', async () => {
     d.enable('test:*')
     Object.keys(await service.root())

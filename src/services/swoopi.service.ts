@@ -6,7 +6,7 @@ import {StarwarsDataSource} from '../datasources';
 export interface SwoopiService extends GenericService {
   root(): Promise<AnyObject>;
   schema(model: string): Promise<AnyObject>;
-  model(model: string): Promise<AnyObject>;
+  model(model: string, search?: string): Promise<AnyObject>;
 }
 
 export class SwoopiServiceProvider implements Provider<SwoopiService> {

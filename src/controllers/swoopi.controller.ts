@@ -1,10 +1,10 @@
-import {get} from '@loopback/openapi-v3';
 import {People} from '../models'
 import {inject,} from '@loopback/core';
 import {SwoopiService} from '../services'
 import {SchemaObject} from 'openapi3-ts';
 import * as d from 'debug';
 const log = d('swoopi:controller:swoopi')
+import {get, post, requestBody, param} from '@loopback/openapi-v3';
 
 
 const schemaWithObjectPropOfMyModel: SchemaObject = {
@@ -29,7 +29,7 @@ export class SwoopiController {
       },
     },
   })
-  async people() {
-    return await this.service.model('people')
+  async people(@param.query.string('search') search?: string) {
+    return await this.service.model('people', search)
   }
 }
