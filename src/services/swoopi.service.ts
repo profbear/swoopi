@@ -1,7 +1,6 @@
-import {getService, juggler} from '@loopback/service-proxy';
+import {GenericService, getService} from '@loopback/service-proxy';
 import {inject, Provider} from '@loopback/core';
 import {StarwarsDataSource} from '../datasources';
-import {GenericService} from '@loopback/service-proxy'
 
 
 export interface RootResource {
@@ -10,6 +9,8 @@ export interface RootResource {
 
 export interface SwoopiService extends GenericService {
   root(): Promise<RootResource>
+
+  schema(model: string, schema: string): Promise<RootResource>
 }
 
 export class SwoopiServiceProvider implements Provider<SwoopiService> {

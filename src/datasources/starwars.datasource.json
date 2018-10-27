@@ -13,11 +13,12 @@
     {
       "template": {
         "method": "GET",
-        "url": "https://swapi.co/api/",
+        "url": "https://swapi.co/api/{model}{schema}",
         "resourceName": ""
       },
       "functions": {
-        "root": []
+        "root": [],
+        "schema": ["model", "schema"]
       }
     }
   ]

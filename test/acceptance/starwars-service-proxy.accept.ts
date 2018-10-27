@@ -23,21 +23,29 @@ describe('starwars by way of swoopi', () => {
     expect(service).not.undefined()
   })
 
-  it('should resolve the base', async () => {
+  it('should generate the model schemas', async () => {
     d.enable('test:*')
+    // const root = await service.root()
+    // Object.keys(root)
+    //     .map(async m => {
+    //       log(`/* ${m} */`,
+    //           JSON.stringify(await service.schema(m,'/schema')))
+    //     })
   })
 
-  xit('skips making tons of calls', async () => {
-    const root = await service.root()
-
-    Object.keys(root)
-        .map(m => ModelBuilder.defaultInstance
-            .buildModelFromInstance(m, {name: 'haha'}, {}))
-        .map(async (m) => {
-          dataSource.attach(m)
-          // log(await m.find()) // note works fine just has type error
-        })
-  })
+  // xit('skips making tons of calls', async () => {
+  //
+  //   Object.keys(root)
+  //       .map(m => {
+  //       })
+  //
+  //       // .map(m => ModelBuilder.defaultInstance
+  //       //     .buildModelFromInstance(m, {name: 'haha'}, {}))
+  //       // .map(async (m) => {
+  //       //   dataSource.createModel(m)
+  //       //   log(await m.find()) // note works fine just has type error
+  //       // })
+  // })
 
   async function promisedService() {
     service = await new SwoopiServiceProvider(dataSource).value()
