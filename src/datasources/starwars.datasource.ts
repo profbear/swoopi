@@ -12,6 +12,7 @@ export class StarwarsDataSource extends juggler.DataSource {
           dsConfig: object = config,
   ) {
     super(dsConfig);
-    d.enable('swoopi:*')
+    //d.enable('swoopi:*')
+    log('starwars initializer')
   }
 }
