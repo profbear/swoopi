@@ -29,7 +29,10 @@ export class SwoopiController {
       },
     },
   })
-  async people(@param.query.string('search') search?: string) {
-    return await this.service.model('people', search)
+  async people(
+      @param.query.string('search') search?: string,
+      @param.query.string('page') page?: string,
+  ) {
+    return await this.service.model('people', search, page)
   }
 }

@@ -37,13 +37,15 @@
         "url": "https://swapi.co/api/{model}",
         "resourceName": "",
         "query": {
-          "search": "{search}"
+          "search": "{search}",
+          "page": "{page}"
         }
       },
       "functions": {
         "model": [
           "model",
-          "search"
+          "search",
+          "page"
         ]
       }
     }
