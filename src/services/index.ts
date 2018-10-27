@@ -1,2 +1,2 @@
 export * from './swoopi.service';
-export {Swapi} from '../models'
+export {SwapiOne} from '../models'
