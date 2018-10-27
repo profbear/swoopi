@@ -9,7 +9,7 @@ import * as dsConfig from '../../src/datasources/starwars.datasource.json'
 
 const log = d('test:service:starwars')
 
-describe('starwars by way of swoopi', () => {
+describe('starwars via swoopi', () => {
   let service: SwoopiService
   const testOverrides = {}
   const dataSource = new StarwarsDataSource({
@@ -25,6 +25,7 @@ describe('starwars by way of swoopi', () => {
 
   it('should generate the model schemas', async () => {
     d.enable('test:*')
+    // log(await service.root())
     // const root = await service.root()
     // Object.keys(root)
     //     .map(async m => {
