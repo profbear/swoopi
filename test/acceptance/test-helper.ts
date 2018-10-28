@@ -1,14 +1,8 @@
 import {SwoopiApplication} from '../..';
-import {
-  createRestAppClient,
-  givenHttpServerConfig,
-  Client,
-} from '@loopback/testlab';
+import {Client, createRestAppClient, givenHttpServerConfig,} from '@loopback/testlab';
 
 export async function setupApplication(): Promise<AppWithClient> {
-  const app = new SwoopiApplication({
-    rest: givenHttpServerConfig(),
-  });
+  const app = new SwoopiApplication({rest: givenHttpServerConfig(),});
 
   await app.boot();
   await app.start();

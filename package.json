@@ -1,9 +1,21 @@
 {
   "name": "swoopi",
   "version": "1.0.1",
-  "description": "swoopi",
+  "description": "star wars loopback api via service proxy to swapi.co",
+  "author": {
+    "name": "the Unbearable Professional",
+    "email": "professor@unbear.pw",
+    "url": "https://www.unbear.pw/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.unbear.pw"
+  },
+  "license": "Unlicense",
+  "licenseUrl": "https://unlicense.org/",
   "keywords": [
-    "loopback-application",
+    "starwars",
+    "loopback-service-proxy",
     "loopback"
   ],
   "main": "index.js",
@@ -25,11 +37,6 @@
     "debug:watch": "nodemon --inspect --watch ./dist index.js",
     "prepublishOnly": "npm run test"
   },
-  "repository": {
-    "type": "git"
-  },
-  "author": "",
-  "license": "Unlicense",
   "files": [
     "README.md",
     "index.js",

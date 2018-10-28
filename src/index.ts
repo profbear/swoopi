@@ -9,17 +9,30 @@
  */
 
 import {SwoopiApplication} from './application';
-import {ApplicationConfig} from '@loopback/core';
+import {ApplicationConfig, /*CoreBindings*/} from '@loopback/core';
+// import {RestBindings,RestServer} from '@loopback/rest'
 
 export {SwoopiApplication};
 
 export async function main(options: ApplicationConfig = {}) {
   const app = new SwoopiApplication(options);
+
+  // const rest = await app.getServer(RestServer)
+  // rest.bind(RestBindings.PORT).to(9000);
+  // rest.bind(RestBindings.API_SPEC).to({
+  //   openapi: '3.0.0',
+  //   info: {
+  //     title: 'hahaplication',
+  //     version: '1.1.1',
+  //   },
+  //   paths: {},
+  //   servers: [{url: '/'}],
+  // })/*.to(apiSpec) */
+
   await app.boot();
   await app.start();
 
-  const url = app.restServer.url;
-  console.log(`Server is running at ${url}`);
+  console.log(`Server is running at ${app.restServer.url}`);
 
   return app;
 }

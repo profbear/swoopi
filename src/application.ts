@@ -14,24 +14,40 @@ import {RepositoryMixin} from '@loopback/repository';
 import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import {MySequence} from './sequence';
+import * as pack from './../package.json';
+import {ContactObject} from 'openapi3-ts';
 
 export class SwoopiApplication extends BootMixin(
-  ServiceMixin(RepositoryMixin(RestApplication)),
+    ServiceMixin(RepositoryMixin(RestApplication)),
 ) {
   constructor(options: ApplicationConfig = {}) {
-    super(options);
+    super(options)
+    this.api({
+      openapi: '3.0.0',
+      info: {
+        title: pack.name,
+        version: pack.version,
+        description: pack.description,
+        // @ts-ignore
+        contact: pack.author as ContactObject,
+        license: {
+          name: pack.license,
+          // @ts-ignore
+          url: pack.licenseUrl
+        },
+      },
+      paths: {},
+    })
 
-    this.sequence(MySequence);
+    this.sequence(MySequence)
 
-    this.projectRoot = __dirname;
-    // Customize @loopback/boot Booter Conventions here
+    this.projectRoot = __dirname
     this.bootOptions = {
       controllers: {
-        // Customize ControllerBooter Conventions here
         dirs: ['controllers'],
         extensions: ['.controller.js'],
         nested: true,
       },
-    };
+    }
   }
 }

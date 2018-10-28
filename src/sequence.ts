@@ -24,12 +24,13 @@ const SequenceActions = RestBindings.SequenceActions;
 
 export class MySequence implements SequenceHandler {
   constructor(
-    @inject(SequenceActions.FIND_ROUTE) protected findRoute: FindRoute,
-    @inject(SequenceActions.PARSE_PARAMS) protected parseParams: ParseParams,
-    @inject(SequenceActions.INVOKE_METHOD) protected invoke: InvokeMethod,
-    @inject(SequenceActions.SEND) public send: Send,
-    @inject(SequenceActions.REJECT) public reject: Reject,
-  ) {}
+      @inject(SequenceActions.FIND_ROUTE) protected findRoute: FindRoute,
+      @inject(SequenceActions.PARSE_PARAMS) protected parseParams: ParseParams,
+      @inject(SequenceActions.INVOKE_METHOD) protected invoke: InvokeMethod,
+      @inject(SequenceActions.SEND) public send: Send,
+      @inject(SequenceActions.REJECT) public reject: Reject,
+  ) {
+  }
 
   async handle(context: RequestContext) {
     try {
