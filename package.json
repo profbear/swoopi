@@ -29,7 +29,7 @@
     "type": "git"
   },
   "author": "",
-  "license": "",
+  "license": "Unlicense",
   "files": [
     "README.md",
     "index.js",
