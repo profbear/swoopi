@@ -19,16 +19,22 @@ const penultimate = (a: string[]): string => a[a.length - 2]
 
 const idOf = (url: string | null): string =>
     fromNullable(url)
-        .map(url => url.split('/'))
+        // @ts-ignore
+        .map(u => u.split('/'))
         .map(penultimate)
+        // @ts-ignore
         .fold(() => 'terminator', id => id)
 
 
 const pageOf = (url: PagePointer| string | null): PagePointer | string =>
     fromNullable(url)
+        // @ts-ignore
         .map(u => new URL(u))
+        // @ts-ignore
         .map(u => u.searchParams)
+        // @ts-ignore
         .map(params => ({page: params.get('page'), search: params.get('search'),}))
+        // @ts-ignore
         .fold(() => 'terminator', id => id)
 
 

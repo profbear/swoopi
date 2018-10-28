@@ -8,43 +8,57 @@
  * present and future rights to this software under copyright law.
  */
 
-export const fromNullable = <T>(nullable: T) =>
+// @ts-ignore
+export const fromNullable = (nullable) =>
     nullable != null ? Right.of(nullable)
         /* it's null */ : Left.of(nullable)
 
 class Right {
+  // @ts-ignore
   constructor(x) {
+    // @ts-ignore
     this.x = x
   }
 
+  // @ts-ignore
   static of(x) {
     return new Right(x)
   }
 
+  // @ts-ignore
   map(f) {
+    // @ts-ignore
     this.x = f(this.x);
     return this
   }
 
+  // @ts-ignore
   fold(f, g) {
+    // @ts-ignore
     return g(this.x)
   }
 }
 
 class Left {
+  // @ts-ignore
   constructor(x) {
+    // @ts-ignore
     this.x = x
   }
 
+  // @ts-ignore
   static of(x) {
     return new Left(x)
   }
 
+  // @ts-ignore
   map(f) {
     return this
   }
 
+  // @ts-ignore
   fold(f, g) {
+    // @ts-ignore
     return f(this.x)
   }
 }
