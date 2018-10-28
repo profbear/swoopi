@@ -20,7 +20,6 @@
     "pretest": "npm run clean && npm run build",
     "test": "lb-mocha --allow-console-logs \"dist/test\"",
     "test:dev": "lb-mocha --allow-console-logs dist/test/**/*.js -w",
-    "prestart": "npm run build",
     "start": "node .",
     "debug:watch": "nodemon --inspect --watch ./dist index.js",
     "prepublishOnly": "npm run test"
