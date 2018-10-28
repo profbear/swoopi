@@ -23,19 +23,12 @@ it'll kinda look like this publicly available
 # where data from
 swoopi is a
 [service proxy](https://loopback.io/doc/en/lb4/Testing-your-application.html#obtain-a-service-proxy-instance)
-to the world's first machine-readable set of Star Wars data [swapi.co](https://swapi.co/about).
+to the world's first machine-readable set of Star Wars data
+at [swapi.co](https://swapi.co/about).
 
 now that the SWAPI is modelled with OpenAPIv3, and because
 it uses loopback, you get the all the massive, cool, crazy
 enterprise-grade benefits.
-
-- [**sdk builder**](https://loopback.io/doc/en/community/SDK-builder.html)  
-The LoopBack SDK Builder generates LoopBack client 
-applications for Angular 2 / TypeScript that can run in 
-web, progressive, and native mobile applications using the 
-Angular CLI, Angular Mobile Toolkit, Ionic 2, or 
-NativeScript 2.
-- for more of the Iraq, and like, such as
 
 ## but the rate limit
 [please don't be that guy](https://swapi.co/documentation#rate);
