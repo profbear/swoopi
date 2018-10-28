@@ -1,6 +1,6 @@
 {
   "name": "swoopi",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "star wars loopback api via service proxy to swapi.co",
   "author": {
     "name": "the Unbearable Professional",
@@ -18,13 +18,12 @@
     "loopback-service-proxy",
     "loopback"
   ],
-  "main": "index.js",
+  "main": "main.js",
   "engines": {
     "node": ">=8.9"
   },
   "scripts": {
     "build:apidocs": "lb-apidocs",
-    "prebuild": "mkdir -p dist; cp -r public dist",
     "build": "lb-tsc es2017 --outDir dist",
     "build:watch": "lb-tsc es2017 --outDir dist --watch",
     "clean": "lb-clean dist",
@@ -37,15 +36,12 @@
     "debug:watch": "nodemon --inspect --watch ./dist index.js",
     "prepublishOnly": "npm run test"
   },
-  "files": [
-    "README.md",
-    "index.js",
-    "index.d.ts",
-    "dist/src",
-    "dist/index*",
-    "public",
-    "src"
-  ],
+  "now": {
+    "files": [
+      "dist",
+      "main.js"
+    ]
+  },
   "dependencies": {
     "@loopback/boot": "^1.0.2",
     "@loopback/cli": "^1.0.2",
@@ -55,13 +51,13 @@
     "@loopback/repository": "^1.0.2",
     "@loopback/rest": "^1.1.0",
     "@loopback/service-proxy": "^1.0.0",
-    "loopback-connector-rest": "^3.3.0",
-    "mocha-typescript": "^1.1.17",
-    "nodemon": "^1.18.5"
+    "loopback-connector-rest": "^3.3.0"
   },
   "devDependencies": {
     "@loopback/build": "^1.0.0",
     "@loopback/testlab": "^1.0.0",
-    "@types/node": "^10.11.2"
+    "@types/node": "^10.11.2",
+    "mocha-typescript": "^1.1.17",
+    "nodemon": "^1.18.5"
   }
 }

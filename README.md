@@ -1,6 +1,6 @@
 # swoopi
 
-[swoopi](https://swoopi-brgsggcqrg.now.sh/) lives here!
+[swoopi](https://swoopi-cfqfmacnaq.now.sh) lives here!
 
 swoopi is the freshest [SWAPI](https://swapi.co/about) and
 [loopback](https://github.com/strongloop/loopback-next) API!
