@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build:apidocs": "lb-apidocs",
+    "prebuild": "mkdir -p dist; cp -r public dist",
     "build": "lb-tsc es2017 --outDir dist",
     "build:watch": "lb-tsc es2017 --outDir dist --watch",
     "clean": "lb-clean dist",
@@ -35,6 +36,7 @@
     "index.d.ts",
     "dist/src",
     "dist/index*",
+    "public",
     "src"
   ],
   "dependencies": {

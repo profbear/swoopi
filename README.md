@@ -1,4 +1,7 @@
 # swoopi
+
+[swoopi](https://swoopi-brgsggcqrg.now.sh/) lives here!
+
 swoopi is the freshest [SWAPI](https://swapi.co/about) and
 [loopback](https://github.com/strongloop/loopback-next) API!
 
@@ -12,6 +15,10 @@ latest greatest loopback. what more could you ask for?
 1. start it  `npm start` boots a URL like [localhost:3000](http://localhost:3000)
 1. skim it in the browser at [localhost:3000](http://localhost:3000)
 1. explore the depths at [localhost:3000/explorer](http://localhost:3000/explorer)
+
+it'll kinda look like this publicly available
+[swoopi](https://swoopi-brgsggcqrg.now.sh/).  
+![demo](screenshoteP8VjpbFYh.png)
 
 # where data from
 swoopi is a
